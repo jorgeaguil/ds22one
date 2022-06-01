@@ -42,8 +42,8 @@
         return this.data
       }
     }
-    const randomNumbers = new Randoms
+    const numerosAle = new Randoms
 
-    console.log(randomNumbers.getRandoms())
-    console.log("node 7: ", randomNumbers.find7())
-    console.log("node 3007: ", randomNumbers.find3007())
+    console.log(numerosAle.getRandoms())
+    console.log("node 7: ", numerosAle.find7())
+    console.log("node 3007: ", numerosAle.find3007())
