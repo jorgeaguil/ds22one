@@ -49,3 +49,85 @@
  * @see {@link https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array}
  * @see {@link https://jsdoc.app}
  */
+let dirigida =  [
+    [0, 1, 0, 1, 0, 0],
+    [0, 0, 0, 0, 1, 0],
+    [0, 0, 0, 0, 1, 1],
+    [0, 1, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0, 1],
+]
+let noDirigida =  [
+    [0, 1, 0, 0, 1],
+    [1, 0, 1, 1, 1],
+    [0, 1, 0, 1, 0],
+    [0, 1, 1, 0, 1],
+    [1, 1, 0, 1, 0],
+]
+let arbol =  [
+    [0, 1, 0, 0],//1
+    [1, 0, 1, 1],//2
+    [0, 1, 0, 0],//3
+    [0, 1, 0, 0],//4
+]
+
+const isSquire = (g) => {
+    let flag=true
+    for(let i=0; i <= g.length-1; i++){
+        for(let j=0; j <= g[i].length-1; j++){
+        }
+        if(g.length-1 != g[i].length-1){
+            flag=false
+        }
+
+    }
+    return flag
+}
+
+console.log('is squire: ' + isSquire(dirigida))
+
+const esSimetrica = (g) => {
+    let flag=true
+    for(let i=0; i <= g.length-1; i++){
+        for(let j=0; j <= g.length-1; j++){
+           if(g[i][j] != g[j][i]){
+               flag=false
+           }
+        }
+    }
+    return flag
+}
+
+console.log('es Simetrica: ' + esSimetrica(noDirigida))
+
+const esArbol = (t) => {
+    let count = 0;
+    let column = 0;
+    let s = 0;
+    let flag=true
+
+    for (let i = 0; i <= t.length-1; i++) {
+        for (let j = 0; j < t[i].length; j++, count++)
+            column = count / t.length;
+    }
+    for (let i = 1; i <= t.length-1; i++) {
+        s = 0;
+        for (let j = 0; j < column; j++) {
+            if (j < i) {
+                s += t[i][j];
+                if (s > 1) flag = false;
+            }
+        }
+    }
+    return flag;
+}
+
+console.log('es un arbol: '+esArbol(arbol))
+
+const esGrafo = (g) => {
+        let flag = true
+        if (esArbol(g) == true) flag = false
+        return flag
+}
+
+console.log('es un grafo: '+ esGrafo(arbol))
